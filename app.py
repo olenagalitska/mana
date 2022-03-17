@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 app.config.from_pyfile('config.py')
 
+
 @app.route('/')
 def hello_world():  # put application's code here
     return 'Hello World!'
