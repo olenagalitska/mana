@@ -1,14 +1,4 @@
-from flask import Flask
+from app import app
 
-app = Flask(__name__)
-
-app.config.from_pyfile('config.py')
-
-
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
-
-
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
