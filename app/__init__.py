@@ -1,18 +1,17 @@
 import flask
-from flask_pymongo import PyMongo
-from app.config import Config
+from flask_mongoengine import MongoEngine
+from config import Config
 
-app = flask.Flask(__name__)
-app.config.from_object(Config)
-
-from app import routes
-
-mongodb_client = PyMongo(app)
-db = mongodb_client.db
+db = MongoEngine()
 
 
-# Example adding a new document to a DB collection
-# @app.route("/add_one")
-# def add_one():
-#     db.tests.insert_one({'title': "test", 'body': "1"})
-#     return flask.jsonify(message="success")
+def create_app():
+    app = flask.Flask(__name__)
+    app.config.from_object(Config)
+
+    db.init_app(app)
+
+    from .routes import routes_bp
+    app.register_blueprint(routes_bp)
+
+    return app
