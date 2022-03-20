@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify
-from app.models import Configuration
+from app.models import PInfo
 
 test_bp = Blueprint('test', __name__)
 
@@ -14,14 +14,11 @@ def hello_world():  # put application's code here
 def test():
     import random
     import string
-    conf = Configuration()
-    conf.name = ''.join((random.choice(string.ascii_lowercase) for x in range(10)))
-    conf.description = ''.join((random.choice(string.ascii_lowercase) for x in range(20)))
-    from datetime import date
-    conf.dateCreated = date.today()
-    conf.dateModified = date.today()
-    conf.showOnAdmin = True
-    conf.save()
+    pinfo = PInfo()
+    pinfo.name = ''.join((random.choice(string.ascii_lowercase) for x in range(10)))
+    pinfo.info = ''.join((random.choice(string.ascii_lowercase) for x in range(20)))
+    pinfo.control_type = 'SLIDER'
+    pinfo.save()
 
-    configs = Configuration.objects()
-    return jsonify(configs), 200
+    pinfos = PInfo.objects()
+    return jsonify(pinfos), 200

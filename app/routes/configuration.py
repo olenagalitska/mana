@@ -13,8 +13,8 @@ def get_configurations():
 
 @config_bp.route('/api/configurations/<name>')
 def get_configuration_by(name: str):
-    config = Configuration.objects(name=name).first()
-    return jsonify(config), 200
+    configuration = Configuration.objects(name=name).first()
+    return jsonify(configuration), 200
 
 
 @config_bp.route('/api/configurations', methods=['POST'])

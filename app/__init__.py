@@ -13,7 +13,9 @@ def create_app():
 
     from app.routes.test import test_bp
     from app.routes.configuration import config_bp
+    from app.routes.pinfo import pinfo_bp
     app.register_blueprint(test_bp)
     app.register_blueprint(config_bp)
+    app.register_blueprint(pinfo_bp)
 
     return app
