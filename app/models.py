@@ -17,7 +17,7 @@ class PInfo(db.Document):
 
 
 class PValue(db.Document):
-    _id = db.ObjectIdField(unique=True)
+    _id = db.ObjectIdField()
     name = db.ReferenceField(PInfo)
     value = db.DynamicField(required=True)
     config = db.ReferenceField(Configuration)

@@ -25,7 +25,7 @@ def add_configuration():
 
 
 @config_bp.route('/api/configurations/<name>', methods=['PUT'])
-def update_movie(name: str):
+def update_configuration(name: str):
     body = request.get_json()
     configuration = Configuration.objects.get_or_404(name=name)
     configuration.update(**body)
@@ -33,7 +33,7 @@ def update_movie(name: str):
 
 
 @config_bp.route('/api/configurations/<name>', methods=['DELETE'])
-def delete_movie(name: str):
+def delete_configuration(name: str):
     configuration = Configuration.objects.get_or_404(name=name)
     configuration.delete()
     return jsonify(configuration.name), 200

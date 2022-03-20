@@ -25,7 +25,7 @@ def add_configuration():
 
 
 @pinfo_bp.route('/api/pinfos/<name>', methods=['PUT'])
-def update_movie(name: str):
+def update_pinfo(name: str):
     body = request.get_json()
     pinfo = PInfo.objects.get_or_404(name=name)
     pinfo.update(**body)
@@ -33,7 +33,7 @@ def update_movie(name: str):
 
 
 @pinfo_bp.route('/api/pinfos/<name>', methods=['DELETE'])
-def delete_movie(name: str):
+def delete_pinfo(name: str):
     pinfo = PInfo.objects.get_or_404(name=name)
     pinfo.delete()
     return jsonify(pinfo.name), 200
