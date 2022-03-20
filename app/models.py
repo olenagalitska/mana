@@ -2,7 +2,7 @@ from . import db
 
 
 class Configuration(db.Document):
-    name = db.StringField(required=True)
+    name = db.StringField(required=True, unique=True)
     description = db.StringField(default="")
     dateCreated = db.DateTimeField(required=True)
     dateModified = db.DateTimeField()
@@ -17,6 +17,7 @@ class PInfo(db.Document):
 
 
 class PValue(db.Document):
+    _id = db.ObjectIdField(unique=True)
     name = db.ReferenceField(PInfo)
     value = db.DynamicField(required=True)
     config = db.ReferenceField(Configuration)

@@ -12,9 +12,11 @@ def hello_world():  # put application's code here
 # Example adding a new document to a DB collection
 @test_bp.route("/test")
 def test():
+    import random
+    import string
     conf = Configuration()
-    conf.name = "First Conf"
-    conf.description = "Bla bla bla"
+    conf.name = ''.join((random.choice(string.ascii_lowercase) for x in range(10)))
+    conf.description = ''.join((random.choice(string.ascii_lowercase) for x in range(20)))
     from datetime import date
     conf.dateCreated = date.today()
     conf.dateModified = date.today()

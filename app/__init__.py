@@ -12,6 +12,8 @@ def create_app():
     db.init_app(app)
 
     from app.routes.test import test_bp
+    from app.routes.configuration import config_bp
     app.register_blueprint(test_bp)
+    app.register_blueprint(config_bp)
 
     return app
