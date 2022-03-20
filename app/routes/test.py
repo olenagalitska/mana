@@ -1,16 +1,16 @@
 from flask import Blueprint, render_template, jsonify
-from .models import Configuration
+from app.models import Configuration
 
-routes_bp = Blueprint('routes', __name__)
+test_bp = Blueprint('test', __name__)
 
 
-@routes_bp.route('/')
+@test_bp.route('/')
 def hello_world():  # put application's code here
     return render_template('index.html')
 
 
 # Example adding a new document to a DB collection
-@routes_bp.route("/test")
+@test_bp.route("/test")
 def test():
     conf = Configuration()
     conf.name = "First Conf"
