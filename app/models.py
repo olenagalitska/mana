@@ -2,6 +2,7 @@ from . import db
 
 
 class Configuration(db.Document):
+    _id = db.ObjectIdField()
     name = db.StringField(required=True, unique=True)
     description = db.StringField(default="")
     dateCreated = db.DateTimeField()
@@ -10,6 +11,7 @@ class Configuration(db.Document):
 
 
 class PInfo(db.Document):
+    _id = db.ObjectIdField()
     name = db.StringField(required=True, unique=True)
     info = db.StringField(required=True)
     # TODO: UI control for visualization

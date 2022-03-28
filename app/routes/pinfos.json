@@ -53,5 +53,10 @@
     "name": "maxHours",
     "info": "The maximum number of hours the route is allowed to take.",
     "control_type": "NUMBER"
+  },
+  {
+    "name": "transferPenalty",
+    "info": "An additional penalty added to boardings after the first.",
+    "control_type": "NUMBER"
   }
 ]
