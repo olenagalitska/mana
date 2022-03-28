@@ -4,7 +4,7 @@ from . import db
 class Configuration(db.Document):
     name = db.StringField(required=True, unique=True)
     description = db.StringField(default="")
-    dateCreated = db.DateTimeField(required=True)
+    dateCreated = db.DateTimeField()
     dateModified = db.DateTimeField()
     showOnAdmin = db.BooleanField(default=False)
 

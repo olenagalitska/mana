@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from app.models import Configuration
 from flask import request
+from datetime import datetime
 
 config_bp = Blueprint('config', __name__)
 
@@ -20,6 +21,9 @@ def get_configuration_by(name: str):
 @config_bp.route('/api/configurations', methods=['POST'])
 def add_configuration():
     body = request.get_json()
+    date = datetime.now()
+    body["dateModified"] = date
+    body["dateCreated"] = date
     configuration = Configuration(**body).save()
     return jsonify(configuration), 200
 
@@ -28,6 +32,7 @@ def add_configuration():
 def update_configuration(name: str):
     body = request.get_json()
     configuration = Configuration.objects.get_or_404(name=name)
+    body["dateModified"] = datetime.now()
     configuration.update(**body)
     return jsonify(configuration.name), 200
 
