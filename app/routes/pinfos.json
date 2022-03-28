@@ -1,0 +1,57 @@
+[
+  {
+    "name": "numItineraries",
+    "info": "The maximum number of possible itineraries to return.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "bannedStops",
+    "info": "A comma-separated list of banned stops.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "walkReluctance",
+    "info": "A multiplier for how bad walking is, compared to being in transit for equal lengths of time.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "walkBoardCost",
+    "info": "Prevents unnecessary transfers by adding a cost for boarding a vehicle. This is the cost that is used when boarding while walking.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "bikeSwitchTime",
+    "info": "The time it takes the user to fetch their bike and park it again in seconds.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "bikeSwitchCost",
+    "info": "The cost it takes the user to fetch their bike and park it again in seconds.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "waitReluctance",
+    "info": "How much worse is waiting for a transit vehicle than being on a transit vehicle, as a multiplier.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "waitAtBeginningFactor",
+    "info": "How much less bad is waiting at the beginning of the trip.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "bikeBoardCost",
+    "info": "Prevents unnecessary transfers by adding a cost for boarding a vehicle. This is the cost that is used when boarding while biking.",
+    "control_type": "NUMBER"
+  },
+  {
+    "name": "ignoreRealtimeUpdates",
+    "info": "Ignore real time updates of the network.",
+    "control_type": "SWITCH"
+  },
+  {
+    "name": "maxHours",
+    "info": "The maximum number of hours the route is allowed to take.",
+    "control_type": "NUMBER"
+  }
+]

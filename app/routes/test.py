@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, jsonify
 from app.models import PInfo
+import json
 
 test_bp = Blueprint('test', __name__)
 
@@ -8,6 +9,16 @@ test_bp = Blueprint('test', __name__)
 def hello_world():  # put application's code here
     return render_template('index.html')
 
+
+@test_bp.route('/fill')
+def fill_in_pinfo():
+    f = open('app/routes/pinfos.json')
+    data = json.load(f)
+
+    for item in data:
+        PInfo(**item).save()
+
+    return render_template('index.html')
 
 # Example adding a new document to a DB collection
 @test_bp.route("/test")

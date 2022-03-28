@@ -18,12 +18,12 @@ class PInfo(db.Document):
 
 class PValue(db.Document):
     _id = db.ObjectIdField()
-    name = db.ReferenceField(PInfo)
+    pinfo = db.ReferenceField(PInfo)
     value = db.DynamicField(required=True)
     config = db.ReferenceField(Configuration)
     meta = {
         'indexes': [
-            {'fields': ('name', 'config'), 'unique': True}
+            {'fields': ('pinfo', 'config'), 'unique': True}
         ]
     }
 
