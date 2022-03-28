@@ -21,3 +21,9 @@ class PValue(db.Document):
     name = db.ReferenceField(PInfo)
     value = db.DynamicField(required=True)
     config = db.ReferenceField(Configuration)
+    meta = {
+        'indexes': [
+            {'fields': ('name', 'config'), 'unique': True}
+        ]
+    }
+
