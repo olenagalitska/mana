@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3> search results for {{ name }} </h3>
+    {% for config in results %}
+    <h3> {{ config.name }} </h3>
+    {% endfor %}
+{% endblock %}
