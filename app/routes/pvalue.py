@@ -29,12 +29,12 @@ def update_pvalue(id: str):
     body = request.get_json()
     pvalue = PValue.objects.get_or_404(id=id)
     pvalue.update(**body)
-    return 200
+    return jsonify(pvalue), 200
 
 
 @pvalue_bp.route('/api/pvalues/<id>', methods=['DELETE'])
 def delete_pvalue(id: str):
     pvalue = PValue.objects(id=id).first()
     pvalue.delete()
-    return 200
+    return jsonify(pvalue), 200
 
