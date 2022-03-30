@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Configuration
+from app.models import Configuration, PValue
 from flask import request
 from datetime import datetime
 
@@ -41,5 +41,7 @@ def update_configuration(name: str):
 def delete_configuration(name: str):
     configuration = Configuration.objects.get_or_404(name=name)
     configuration.delete()
-    return jsonify(configuration.name), 200
 
+    pvalues = PValue.objects(config=configuration)
+    pvalues.delete()
+    return jsonify(configuration.name), 200

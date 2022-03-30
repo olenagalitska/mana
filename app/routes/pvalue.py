@@ -12,8 +12,8 @@ def get_configurations():
 
 
 @pvalue_bp.route('/api/pvalues/<_id>')
-def get_configuration_by(_id: str):
-    pvalue = PValue.objects(_id=_id).first()
+def get_configuration_by(id: str):
+    pvalue = PValue.objects(id=id).first()
     return jsonify(pvalue), 200
 
 
@@ -24,17 +24,17 @@ def add_configuration():
     return jsonify(pvalue), 200
 
 
-@pvalue_bp.route('/api/pvalues/<_id>', methods=['PUT'])
-def update_pvalue(_id: str):
+@pvalue_bp.route('/api/pvalues/<id>', methods=['PUT'])
+def update_pvalue(id: str):
     body = request.get_json()
-    pvalue = PValue.objects.get_or_404(_id=_id)
+    pvalue = PValue.objects.get_or_404(id=id)
     pvalue.update(**body)
-    return jsonify(pvalue._id), 200
+    return 200
 
 
-@pvalue_bp.route('/api/pvalues/<_id>', methods=['DELETE'])
-def delete_pvalue(_id: str):
-    pvalue = PValue.objects.get_or_404(_id=_id)
+@pvalue_bp.route('/api/pvalues/<id>', methods=['DELETE'])
+def delete_pvalue(id: str):
+    pvalue = PValue.objects(id=id).first()
     pvalue.delete()
-    return jsonify(pvalue._id), 200
+    return 200
 

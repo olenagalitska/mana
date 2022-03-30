@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import PInfo
+from app.models import PInfo, PValue
 from flask import request
 
 pinfo_bp = Blueprint('pinfo', __name__)
@@ -34,7 +34,10 @@ def update_pinfo(name: str):
 
 @pinfo_bp.route('/api/pinfos/<name>', methods=['DELETE'])
 def delete_pinfo(name: str):
-    pinfo = PInfo.objects.get_or_404(name=name)
+    pinfo = PInfo.objects(name=name).first()
     pinfo.delete()
+
+    pvalues = PValue.objects(pinfo=pinfo)
+    pvalues.delete()
     return jsonify(pinfo.name), 200
 
