@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3> This is the start of my child template</h3>
-    <h3> This is the end of my child template</h3>
+    {#    <form class="form-inline">#}
+    {#        <div class="form-group mx-sm-3 mb-2">#}
+    {#            <label for="inputName" class="sr-only">Name</label>#}
+    {#            <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{ inputName }}">#}
+    {#        </div>#}
+    {#        <button type="submit" class="btn btn-primary mb-2" href="/search/{{ inputName }}">Search</button>#}
+    {#    </form>#}
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <a href="/configurations"><button type="button" class="btn btn-secondary">VIEW ALL</button></a>
+        <a href="/configurations/new"><button type="button" class="btn btn-secondary">ADD NEW</button></a>
+        <a href="/admin/configurations"><button type="button" class="btn btn-secondary">ADMIN</button></a>
+    </div>
 {% endblock %}

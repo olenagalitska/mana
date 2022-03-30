@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     {% if config %}
+        <h3>ADMIN CONFIG</h3>
         {% for config in configurations %}
             <h3> {{ config.name }} </h3>
         {% endfor %}

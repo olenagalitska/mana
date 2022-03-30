@@ -6,6 +6,7 @@ class Config(object):
     MONGODB_SETTINGS = {'host': os.environ.get('MONGO_URI')}
 
     ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or 'password'
+    TEMPLATES_AUTO_RELOAD = True
 
     DEBUG = True
     TESTING = False
