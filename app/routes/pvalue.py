@@ -6,19 +6,19 @@ pvalue_bp = Blueprint('pvalue', __name__)
 
 
 @pvalue_bp.route('/api/pvalues')
-def get_configurations():
+def get_pvalues():
     pvalue = PValue.objects()
     return jsonify(pvalue), 200
 
 
-@pvalue_bp.route('/api/pvalues/<_id>')
-def get_configuration_by(id: str):
+@pvalue_bp.route('/api/pvalues/<id>')
+def get_pvalue(id: str):
     pvalue = PValue.objects(id=id).first()
     return jsonify(pvalue), 200
 
 
 @pvalue_bp.route('/api/pvalues', methods=['POST'])
-def add_configuration():
+def add_pvalue():
     body = request.get_json()
     pvalue = PValue(**body).save()
     return jsonify(pvalue), 200

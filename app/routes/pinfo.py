@@ -6,19 +6,19 @@ pinfo_bp = Blueprint('pinfo', __name__)
 
 
 @pinfo_bp.route('/api/pinfos')
-def get_configurations():
+def get_pinfos():
     pinfo = PInfo.objects()
     return jsonify(pinfo), 200
 
 
 @pinfo_bp.route('/api/pinfos/<name>')
-def get_configuration_by(name: str):
+def get_pinfo(name: str):
     pinfo = PInfo.objects(name=name).first()
     return jsonify(pinfo), 200
 
 
 @pinfo_bp.route('/api/pinfos', methods=['POST'])
-def add_configuration():
+def add_pinfo():
     body = request.get_json()
     pinfo = PInfo(**body).save()
     return jsonify(pinfo), 200
