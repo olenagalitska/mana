@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h3> {{ config.name }} </h3>
+    {% for pvalue in pvalues %}
+    <h3> {{ pvalue.pinfo.name }} {{ pvalue.value }}  </h3>
+    {% endfor %}
 {% endblock %}

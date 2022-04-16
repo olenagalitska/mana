@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
     {% for config in configurations %}
-    <h3> {{ config.name }} </h3>
+    <h3> <a href="configurations/{{ config.name }}"> {{ config.name }} </a></h3>
     {% endfor %}
 {% endblock %}

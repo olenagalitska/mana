@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from app.models import PValue, PInfo, Configuration
+from app.services import get_params_for_config
 
 webapp_bp = Blueprint('webapp', __name__)
 
@@ -24,7 +25,9 @@ def configurations():
 @webapp_bp.route('/configurations/<name>')
 def configuration(name: str):
     config = Configuration.objects(name=name).first()
-    return render_template('configuration.html', config=config)
+    pvalues = get_params_for_config(name)
+    print(pvalues)
+    return render_template('configuration.html', config=config, pvalues=pvalues)
 
 
 @webapp_bp.route('/configurations/new')
