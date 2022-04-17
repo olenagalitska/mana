@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
     <h3> {{ config.name }} </h3>
+    {% if isAdmin and not config.showOnAdmin %}
+        <a href="../api/configurations/{{ config.name }}/show_on_admin"><input type=”button”
+                                                                             value=”to_admin”>To Admin</a>
+    {% endif %}
     {% for pvalue in pvalues %}
-    <h3> {{ pvalue.pinfo.name }} {{ pvalue.value }}  </h3>
+        <p> {{ pvalue.pinfo.name }} : {{ pvalue.value }}  </p>
     {% endfor %}
 {% endblock %}
+
+
+{# TODO: if admin - delete configuration #}
+{# TODO: if admin - edit configuration #}

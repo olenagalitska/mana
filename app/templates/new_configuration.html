@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3> NEW CONFIG </h3>
+    {% for param in pinfos %}
+            <p>{{ param.name }}</p>
+            <p> ------- {{ param.info }}</p>
+        {% endfor %}
 {% endblock %}
+
+{# TODO: field for every param #}
+{# TODO: on "create" add new configuration #}
+{# TODO: on "create" add all new pvalues #}

@@ -5,6 +5,7 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(24)
     MONGODB_SETTINGS = {'host': os.environ.get('MONGO_URI')}
 
+    # TODO: fix this
     ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or 'password'
     TEMPLATES_AUTO_RELOAD = True
 

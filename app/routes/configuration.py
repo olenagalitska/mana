@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, redirect
 from app.models import Configuration, PValue
 from flask import request
 from datetime import datetime
@@ -45,3 +45,12 @@ def delete_configuration(name: str):
     pvalues = PValue.objects(config=configuration)
     pvalues.delete()
     return jsonify(configuration.name), 200
+
+
+@config_bp.route('/api/configurations/<name>/show_on_admin', methods=['GET'])
+def show_on_admin(name: str):
+    configuration = Configuration.objects.get_or_404(name=name)
+    configuration.showOnAdmin = True
+    configuration.dateModified = datetime.now()
+    configuration.save()
+    return redirect("/configurations/" + name)
