@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     {% if isAdmin %}
-        {# TODO: button for new parameter #}
+        <p><a href="new_parameter"> Create new </a></p>
     {% endif %}
 
     <h3>Available Parameters</h3>
-        {% for param in parameters %}
-            <p>{{ param.name }}</p>
-            <p> ------- {{ param.info }}</p>
-        {% endfor %}
+    {% for param in parameters %}
+        <p>{{ param.name }}</p>
+        <p> ------- {{ param.info }}</p>
+    {% endfor %}
 {% endblock %}

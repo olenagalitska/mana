@@ -8,11 +8,21 @@
     {#        <button type="submit" class="btn btn-primary mb-2" href="/search/{{ inputName }}">Search</button>#}
     {#    </form>#}
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <a href="/configurations"><button type="button" class="btn btn-secondary">VIEW ALL</button></a>
-        <a href="/new_configuration"><button type="button" class="btn btn-secondary">ADD NEW</button></a>
+        <a href="/configurations">
+            <button type="button" class="btn btn-secondary">VIEW ALL CONFIGURATIONS</button>
+        </a>
+        <a href="/new_configuration">
+            <button type="button" class="btn btn-secondary">ADD NEW CONFIGURATION</button>
+        </a>
+        <a href="/parameters">
+            <button type="button" class="btn btn-secondary">VIEW ALL PARAMETERS</button>
+        </a>
+        {% if isAdmin %}
+            <a href="/new_parameter">
+                <button type="button" class="btn btn-secondary">ADD NEW PARAMETER</button>
+            </a>
+        {% endif %}
     </div>
 {% endblock %}
 
 {# TODO: search bar for configurations #}
-{# TODO: if admin - show parameters tab #}
-{# TODO: if admin - show new parameter tab #}

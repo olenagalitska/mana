@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <p><a href="new_configuration"> Create new </a></p>
     {% if isAdmin %}
         <h3>Admin Configurations</h3>
         {% for config in admin_configurations %}
@@ -12,5 +13,3 @@
         <p><a href="configurations/{{ config.name }}"> {{ config.name }} </a></p>
     {% endfor %}
 {% endblock %}
-
-{# TODO: button for new configuration #}

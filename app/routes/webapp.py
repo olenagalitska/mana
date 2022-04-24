@@ -17,7 +17,7 @@ def before_request():
 # home page
 @webapp_bp.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', isAdmin=session["admin"])
 
 
 # search for a name in configurations

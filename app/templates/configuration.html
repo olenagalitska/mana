@@ -3,7 +3,7 @@
     <h3> {{ config.name }} </h3>
     {% if isAdmin and not config.showOnAdmin %}
         <a href="../api/configurations/{{ config.name }}/show_on_admin"><input type=”button”
-                                                                             value=”to_admin”>To Admin</a>
+                                                                               value=”to_admin”>To Admin</a>
     {% endif %}
     {% for pvalue in pvalues %}
         <p> {{ pvalue.pinfo.name }} : {{ pvalue.value }}  </p>
