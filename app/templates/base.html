@@ -30,6 +30,11 @@
 <body>
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="/">m a n a</a>
+    {% if not session["admin"] %}
+        <button id="signin" onclick="signIn()">Sign In</button>
+    {% else %}
+        <button id="signout" onclick="signOut()">Sign Out</button>
+    {% endif %}
 </nav>
 <br>
 {% block content %}{% endblock %}
@@ -37,8 +42,6 @@
 <h2>Footer</h2>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../static/script.js"></script>
 </body>
 </html>
-
-{# TODO: sign in / sign out #}
-{# TODO: on sign in - propmt for password #}
