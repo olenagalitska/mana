@@ -6,7 +6,7 @@
                                                                                value=”to_admin”>To Admin</a>
     {% endif %}
     {% if isAdmin %}
-        {# TODO: delete configuration #}
+        <button type="submit" class="btn btn-primary" onclick="deleteConfig('{{ config.name }}')">Delete</button>
         {# TODO: edit configuration #}
     {% endif %}
     {% for pvalue in pvalues %}

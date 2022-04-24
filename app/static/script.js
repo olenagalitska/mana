@@ -13,6 +13,13 @@ function httpPost(url, body) {
     return xmlHttp.responseText;
 }
 
+function httpDelete(url) {
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("DELETE", url);
+    xmlHttp.send();
+    return xmlHttp.responseText;
+}
+
 function signIn() {
     let password = window.prompt("Admin Password");
     httpGet("/signin/" + password)
@@ -30,4 +37,9 @@ function addPinfo(pname, pinfo) {
         info: pinfo
     }
     httpPost("/api/pinfos", newPInfo)
+}
+
+function deleteConfig(name) {
+    httpDelete("/api/configurations/" + name)
+    location.assign("/configurations")
 }
