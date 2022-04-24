@@ -1,24 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
     <h3> NEW PARAM </h3>
-    <form>
+    <form onsubmit="addPinfo(document.getElementById('paramName').value,document.getElementById('paramInfo').value)">
         <div class="form-group">
             <label for="paramName">Name</label>
             <input type="text" class="form-control" id="paramName" placeholder="Enter parameter name">
 
             <label for="paramInfo">Info</label>
             <input type="text" class="form-control" id="paramInfo" placeholder="Enter parameter description">
-
-{#            <select class="form-select" aria-label="Parameter type">#}
-{#                <option selected>Select parameter type</option>#}
-{#                <option value="NUMBER">Numeric</option>#}
-{#                <option value="STRING">Text</option>#}
-{#                <option value="ENUM">List</option>#}
-{#            </select>#}
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {% endblock %}
-
-{# TODO: on "create" save pinfo to DB #}
-{# TODO: if type is list - provide a way to save possible options #}
