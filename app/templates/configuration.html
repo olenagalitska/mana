@@ -5,11 +5,11 @@
         <a href="../api/configurations/{{ config.name }}/show_on_admin"><input type=”button”
                                                                                value=”to_admin”>To Admin</a>
     {% endif %}
+    {% if isAdmin %}
+        {# TODO: delete configuration #}
+        {# TODO: edit configuration #}
+    {% endif %}
     {% for pvalue in pvalues %}
         <p> {{ pvalue.pinfo.name }} : {{ pvalue.value }}  </p>
     {% endfor %}
 {% endblock %}
-
-
-{# TODO: if admin - delete configuration #}
-{# TODO: if admin - edit configuration #}
