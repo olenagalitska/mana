@@ -63,6 +63,22 @@ def new_configuration():
                            pinfos=available_pinfos)
 
 
+# edit configuration
+@webapp_bp.route('/edit_configuration/<name>')
+def edit_configuration(name):
+    found_config = Configuration.objects(name=name).first()
+    pvalues_for_config = get_params_for_config(name)
+    all_pinfos = PInfo.objects()
+    set_pinfos = []
+    for pvalue in pvalues_for_config:
+        set_pinfos.append(pvalue.pinfo)
+    available_pinfos = set(all_pinfos) - set(set_pinfos)
+    return render_template('edit_configuration.html',
+                           config=found_config,
+                           pvalues=pvalues_for_config,
+                           pinfos=list(available_pinfos))
+
+
 # get list of all available parameters (on admin)
 @webapp_bp.route('/parameters')
 def admin_parameters():

@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-    {% for param in pinfos %}
-        <p>{{ param.name }}</p>
-        <p> ------- {{ param.info }}</p>
-        {# TODO: field for every param #}
-    {% endfor %}
+
+    <form id="configurationForm" onsubmit="addConfiguration(document.getElementById('configurationForm'))">
+        <div class="form-group">
+            <label for="configName">Name</label>
+            <input type="text" class="form-control" id="configName" placeholder="New Configuration">
+            <label for="configDescription">Description</label>
+            <input type="text" class="form-control" id="configDescription" placeholder="Text">
+            {% for param in pinfos %}
+                {# TODO: infobox #}
+                <p>{{ param.name }}</p>
+                <p> ------- {{ param.info }}</p>
+                <label for="{{ param.name }}">{{ param.name }}</label>
+                <input type="text" class="form-control" id="{{ param.name }}" placeholder="Value">
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 {% endblock %}
-
-
-{# TODO: on "create" add new configuration #}
-{# TODO: on "create" add all new pvalues #}

@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
     <h3> {{ config.name }} </h3>
+    <h4> {{ config.description }} </h4>
     {% if isAdmin and not config.showOnAdmin %}
         <a href="../api/configurations/{{ config.name }}/show_on_admin"><input type=”button”
                                                                                value=”to_admin”>To Admin</a>
     {% endif %}
-    {% if isAdmin %}
+    {% if (isAdmin and config.showOnAdmin) or (not config.showOnAdmin)%}
         <button type="submit" class="btn btn-primary" onclick="deleteConfig('{{ config.name }}')">Delete</button>
-        {# TODO: edit configuration #}
+        <a href="/edit_configuration/{{ config.name }}"><input type=”button” value=”edit_config”>Edit</a>
+
     {% endif %}
     {% for pvalue in pvalues %}
         <p> {{ pvalue.pinfo.name }} : {{ pvalue.value }}  </p>

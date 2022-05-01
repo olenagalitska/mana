@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form id="configurationForm"
+          onsubmit="editConfiguration(document.getElementById('configurationForm'), '{{ config.name }}')">
+        <div class="form-group">
+            <label for="configName">Name</label>
+            <input type="text" class="form-control" id="configName" placeholder={{ config.name }} value={{ config.name }}>
+            <label for="configDescription">Description</label>
+            <input type="text" class="form-control" id="configDescription" placeholder={{ config.description }} value={{ config.description }}>
+
+            {% for pvalue in pvalues %}
+                <p> {{ pvalue.pinfo.name }} : {{ pvalue.value }}  </p>
+                <label for="{{ pvalue.pinfo.name }}">{{ pvalue.pinfo.name }}</label>
+                <input type="text" class="form-control" id="{{ pvalue.pinfo.name }}" placeholder={{ pvalue.value }} value={{ pvalue.value }}>
+            {% endfor %}
+
+
+            {% for param in pinfos %}
+                {# TODO: infobox #}
+                <p>{{ param.name }}</p>
+                <p> ------- {{ param.info }}</p>
+                <label for="{{ param.name }}">{{ param.name }}</label>
+                <input type="text" class="form-control" id="{{ param.name }}" placeholder="Text">
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

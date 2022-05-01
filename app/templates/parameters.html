@@ -8,5 +8,14 @@
     {% for param in parameters %}
         <p>{{ param.name }}</p>
         <p> ------- {{ param.info }}</p>
+        {% if isAdmin %}
+            <button type="submit" class="btn btn-primary"
+                    onclick="httpDelete('/api/pinfos/{{ param.name }}'); location.reload()">Delete
+            </button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+        {% endif %}
     {% endfor %}
 {% endblock %}
+
+{# TODO: delete if admin #}
+{# TODO: edit if admin #}
